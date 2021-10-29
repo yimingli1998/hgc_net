@@ -1,0 +1,56 @@
+num_images:           20000
+num_scenes:           5000
+num_images_per_scene:   4
+use_base_coordinate:    True
+use_init_hand:          True
+max_grasp_per_key_point: 20
+
+vis:
+  vis_pointcloud:       True
+  vis_scene:            True
+  vis_handmesh:         True
+color:
+  plannar:              [150,150,150]
+  object:               [255,215,0]
+  pointcloud:           [0,255,0]
+  bad_point:            [0,0,255]
+  good_point:           [255,0,0]
+  hand_mesh:            [255,255,0]
+  Parallel_Extension:   [254,67,101,220]
+  Pen_Pinch:            [252,157,154,220]
+  Palmar_Pinch:         [200,200,169,220]
+  Precision_Sphere:     [38,188,213,220]
+  Large_Wrap:           [131,175,155,220]
+dataset:
+  num_points:           40000
+  num_taxonomies:       5
+  use_norm_points:      True
+  sample_planar_rate:   0.10
+train:
+  batchsize:        1
+  learning_rate:    0.0001
+  epoches:          80
+  gpu:              '0'
+  optimizer:        'Adam'
+  workers:          1
+  theme:            test
+  gp_weight:        [1,10]
+  printfreq:        50
+  use_bin_loss:     False
+eval:
+#  model_path:       'experiment/20210908_224520_grasp_bs32/checkpoints'
+#  epoch:            74
+  model_path:       'experiment/20210913_224000_quat_loss32/checkpoints'
+  epoch:            46
+  dist_thresh:      0.05
+  angle_thresh:     30
+  quat_thresh:      60
+bin_loss:
+  azimuth_scope:        360
+  azimuth_bin_size:     60
+  elevation_scope:      90
+  elevation_bin_size:   15
+  grasp_angle_scope:    360
+  grasp_angle_bin_size: 30
+  depth_scope:          8
+  depth_bin_size: 1
