@@ -1,0 +1,448 @@
+<mujoco model="BHAM">
+    <compiler angle="radian" meshdir="./" />
+    <option apirate="50" cone="elliptic" impratio="1.75" integrator="RK4" iterations="50" tolerance="1e-10" viscosity="1" />
+    <size nconmax="500" njmax="5000" nstack="500000" />
+    <statistic center="0 -0.2 0.2" extent="1" />
+    <default class="main">
+        <default class="BHAM">
+            <joint armature="0.001" damping="0.2" limited="true" />
+            <geom condim="4" friction="1 0.005 0.005" group="1" material="BHAM.MatMesh" rgba="0.44 0.54 0.565 1" solref="0.008 1" />
+            <site group="3" material="BHAM.MatTouch" type="ellipsoid" />
+            <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" forcelimited="true" forcerange="-1.25 1.25" />
+        </default>
+        <default class="IMU">
+            <site group="4" material="BHAM.MatIMU" type="box" />
+        </default>
+        <default class="free">
+            <joint type="free" />
+        </default>
+    </default>
+    <asset>
+        <texture builtin="gradient" height="600" rgb1="0.4 0.6 0.8" rgb2="0 0 0" type="skybox" width="100" />
+        <texture builtin="checker" height="100" name="BHAM.groundplane" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" type="2d" width="100" />
+        <material name="BHAM.MatTouch" rgba="0.3 0.9 0.3 0.3" />
+        <material name="BHAM.MatIMU" rgba="0.1 0.1 0.9 1" />
+        <material name="BHAM.MatMesh" rgba="0.6 0.6 0.6 1" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/righthandbase.stl" name="BHAM.righthandbase" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/palm_1_cvx.stl" name="BHAM.palm1" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/palm_2_cvx.stl" name="BHAM.palm2" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/fore_basecover.stl" name="BHAM.fore_basecover" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/fore_distalp.stl" name="BHAM.fore_distalp" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/fore_middlep.stl" name="BHAM.fore_middlep" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/fore_proximalp.stl" name="BHAM.fore_proximalp" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/little_basecover.stl" name="BHAM.little_basecover" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/little_distalp.stl" name="BHAM.little_distalp" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/little_middlep.stl" name="BHAM.little_middlep" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/little_proximalp.stl" name="BHAM.little_proximalp" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/middle_basecover.stl" name="BHAM.middle_basecover" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/middle_distalp.stl" name="BHAM.middle_distalp" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/middle_middlep.stl" name="BHAM.middle_middlep" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/middle_proximalp.stl" name="BHAM.middle_proximalp" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/ring_basecover.stl" name="BHAM.ring_basecover" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/ring_distalp.stl" name="BHAM.ring_distalp" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/ring_middlep.stl" name="BHAM.ring_middlep" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/ring_proximalp.stl" name="BHAM.ring_proximalp" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/thumb_basecover.stl" name="BHAM.thumb_basecover" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/thumb_distalp.stl" name="BHAM.thumb_distalp" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/thumb_middlep.stl" name="BHAM.thumb_middlep" />
+        <mesh file="/home/yayu/dlr_new/assets/dlr_mesh/thumb_proximalp.stl" name="BHAM.thumb_proximalp" />
+    <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000182_vhacd/obj_000182.stl" name="obj_000182.mesh_obj_000182" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000182_vhacd/obj_000182_vhacdcvx_0.stl" name="obj_000182.obj_000182_vhacdcvx_0" />
+    <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000189_vhacd/obj_000189_vhacdcvx_0.stl" name="obj_000189.obj_000189_vhacdcvx_0" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000189_vhacd/obj_000189.stl" name="obj_000189.mesh_obj_000189" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000189_vhacd/obj_000189_vhacdcvx_3.stl" name="obj_000189.obj_000189_vhacdcvx_3" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000189_vhacd/obj_000189_vhacdcvx_1.stl" name="obj_000189.obj_000189_vhacdcvx_1" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000189_vhacd/obj_000189_vhacdcvx_2.stl" name="obj_000189.obj_000189_vhacdcvx_2" />
+    <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000186_vhacd/obj_000186_vhacdcvx_3.stl" name="obj_000186.obj_000186_vhacdcvx_3" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000186_vhacd/obj_000186_vhacdcvx_1.stl" name="obj_000186.obj_000186_vhacdcvx_1" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000186_vhacd/obj_000186_vhacdcvx_5.stl" name="obj_000186.obj_000186_vhacdcvx_5" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000186_vhacd/obj_000186_vhacdcvx_0.stl" name="obj_000186.obj_000186_vhacdcvx_0" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000186_vhacd/obj_000186.stl" name="obj_000186.mesh_obj_000186" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000186_vhacd/obj_000186_vhacdcvx_4.stl" name="obj_000186.obj_000186_vhacdcvx_4" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000186_vhacd/obj_000186_vhacdcvx_2.stl" name="obj_000186.obj_000186_vhacdcvx_2" />
+    <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000183_vhacd/obj_000183_vhacdcvx_5.stl" name="obj_000183.obj_000183_vhacdcvx_5" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000183_vhacd/obj_000183_vhacdcvx_6.stl" name="obj_000183.obj_000183_vhacdcvx_6" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000183_vhacd/obj_000183_vhacdcvx_8.stl" name="obj_000183.obj_000183_vhacdcvx_8" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000183_vhacd/obj_000183.stl" name="obj_000183.mesh_obj_000183" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000183_vhacd/obj_000183_vhacdcvx_0.stl" name="obj_000183.obj_000183_vhacdcvx_0" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000183_vhacd/obj_000183_vhacdcvx_3.stl" name="obj_000183.obj_000183_vhacdcvx_3" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000183_vhacd/obj_000183_vhacdcvx_4.stl" name="obj_000183.obj_000183_vhacdcvx_4" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000183_vhacd/obj_000183_vhacdcvx_1.stl" name="obj_000183.obj_000183_vhacdcvx_1" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000183_vhacd/obj_000183_vhacdcvx_7.stl" name="obj_000183.obj_000183_vhacdcvx_7" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000183_vhacd/obj_000183_vhacdcvx_2.stl" name="obj_000183.obj_000183_vhacdcvx_2" />
+    <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_23.stl" name="obj_000180.obj_000180_vhacdcvx_23" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_24.stl" name="obj_000180.obj_000180_vhacdcvx_24" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_19.stl" name="obj_000180.obj_000180_vhacdcvx_19" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_17.stl" name="obj_000180.obj_000180_vhacdcvx_17" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180.stl" name="obj_000180.mesh_obj_000180" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_26.stl" name="obj_000180.obj_000180_vhacdcvx_26" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_30.stl" name="obj_000180.obj_000180_vhacdcvx_30" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_11.stl" name="obj_000180.obj_000180_vhacdcvx_11" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_25.stl" name="obj_000180.obj_000180_vhacdcvx_25" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_31.stl" name="obj_000180.obj_000180_vhacdcvx_31" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_6.stl" name="obj_000180.obj_000180_vhacdcvx_6" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_15.stl" name="obj_000180.obj_000180_vhacdcvx_15" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_1.stl" name="obj_000180.obj_000180_vhacdcvx_1" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_27.stl" name="obj_000180.obj_000180_vhacdcvx_27" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_16.stl" name="obj_000180.obj_000180_vhacdcvx_16" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_2.stl" name="obj_000180.obj_000180_vhacdcvx_2" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_20.stl" name="obj_000180.obj_000180_vhacdcvx_20" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_8.stl" name="obj_000180.obj_000180_vhacdcvx_8" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_12.stl" name="obj_000180.obj_000180_vhacdcvx_12" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_22.stl" name="obj_000180.obj_000180_vhacdcvx_22" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_3.stl" name="obj_000180.obj_000180_vhacdcvx_3" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_18.stl" name="obj_000180.obj_000180_vhacdcvx_18" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_21.stl" name="obj_000180.obj_000180_vhacdcvx_21" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_29.stl" name="obj_000180.obj_000180_vhacdcvx_29" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_7.stl" name="obj_000180.obj_000180_vhacdcvx_7" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_5.stl" name="obj_000180.obj_000180_vhacdcvx_5" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_13.stl" name="obj_000180.obj_000180_vhacdcvx_13" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_0.stl" name="obj_000180.obj_000180_vhacdcvx_0" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_28.stl" name="obj_000180.obj_000180_vhacdcvx_28" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_10.stl" name="obj_000180.obj_000180_vhacdcvx_10" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_9.stl" name="obj_000180.obj_000180_vhacdcvx_9" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_14.stl" name="obj_000180.obj_000180_vhacdcvx_14" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000180_vhacd/obj_000180_vhacdcvx_4.stl" name="obj_000180.obj_000180_vhacdcvx_4" />
+    <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_30.stl" name="obj_000191.obj_000191_vhacdcvx_30" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_16.stl" name="obj_000191.obj_000191_vhacdcvx_16" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_1.stl" name="obj_000191.obj_000191_vhacdcvx_1" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_6.stl" name="obj_000191.obj_000191_vhacdcvx_6" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_3.stl" name="obj_000191.obj_000191_vhacdcvx_3" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_27.stl" name="obj_000191.obj_000191_vhacdcvx_27" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_23.stl" name="obj_000191.obj_000191_vhacdcvx_23" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_13.stl" name="obj_000191.obj_000191_vhacdcvx_13" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_10.stl" name="obj_000191.obj_000191_vhacdcvx_10" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_15.stl" name="obj_000191.obj_000191_vhacdcvx_15" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_12.stl" name="obj_000191.obj_000191_vhacdcvx_12" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_19.stl" name="obj_000191.obj_000191_vhacdcvx_19" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_8.stl" name="obj_000191.obj_000191_vhacdcvx_8" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_29.stl" name="obj_000191.obj_000191_vhacdcvx_29" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_7.stl" name="obj_000191.obj_000191_vhacdcvx_7" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_18.stl" name="obj_000191.obj_000191_vhacdcvx_18" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_24.stl" name="obj_000191.obj_000191_vhacdcvx_24" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_28.stl" name="obj_000191.obj_000191_vhacdcvx_28" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_21.stl" name="obj_000191.obj_000191_vhacdcvx_21" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_25.stl" name="obj_000191.obj_000191_vhacdcvx_25" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_0.stl" name="obj_000191.obj_000191_vhacdcvx_0" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_9.stl" name="obj_000191.obj_000191_vhacdcvx_9" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_5.stl" name="obj_000191.obj_000191_vhacdcvx_5" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_26.stl" name="obj_000191.obj_000191_vhacdcvx_26" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_2.stl" name="obj_000191.obj_000191_vhacdcvx_2" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191.stl" name="obj_000191.mesh_obj_000191" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_14.stl" name="obj_000191.obj_000191_vhacdcvx_14" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_31.stl" name="obj_000191.obj_000191_vhacdcvx_31" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_20.stl" name="obj_000191.obj_000191_vhacdcvx_20" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_11.stl" name="obj_000191.obj_000191_vhacdcvx_11" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_22.stl" name="obj_000191.obj_000191_vhacdcvx_22" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_4.stl" name="obj_000191.obj_000191_vhacdcvx_4" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000191_vhacd/obj_000191_vhacdcvx_17.stl" name="obj_000191.obj_000191_vhacdcvx_17" />
+    <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000187_vhacd/obj_000187_vhacdcvx_4.stl" name="obj_000187.obj_000187_vhacdcvx_4" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000187_vhacd/obj_000187_vhacdcvx_0.stl" name="obj_000187.obj_000187_vhacdcvx_0" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000187_vhacd/obj_000187_vhacdcvx_2.stl" name="obj_000187.obj_000187_vhacdcvx_2" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000187_vhacd/obj_000187_vhacdcvx_1.stl" name="obj_000187.obj_000187_vhacdcvx_1" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000187_vhacd/obj_000187_vhacdcvx_3.stl" name="obj_000187.obj_000187_vhacdcvx_3" />
+        <mesh file="/home/yayu/dlr/mujoco_utils/../../dlr_new/mujoco_objects/origin/obj_000187_vhacd/obj_000187.stl" name="obj_000187.mesh_obj_000187" />
+    </asset>
+    <worldbody>
+        <camera fovy="75" name="BHAM.fixed2" pos="1 -1 1" quat="0.924 0.383 0 0" />
+        <camera fovy="75" name="BHAM.fixed" pos="1 0 1" />
+        <body childclass="BHAM" name="BHAM.floor" pos="0 0 0">
+            <inertial diaginertia="0 0 0" mass="0" pos="0 0 0" />
+            <geom friction="0 0.005 0.005" rgba="1 1 0 1" size="0.5 0.5 0.025" type="plane" />
+        </body>
+        <body childclass="BHAM" name="BHAM.forearm" pos="0 0 0">
+            <inertial diaginertia="3.35103e-06 3.35103e-06 5.02655e-06" mass="1" pos="0 0 0" />
+            <joint axis="1 0 0" damping="80" name="BHAM.ARTx" pos="0 0 0" range="-2 2" type="slide" />
+            <joint axis="0 1 0" damping="80" name="BHAM.ARTy" pos="0 0 0" range="-2 2" type="slide" />
+            <joint axis="0 0 1" damping="80" name="BHAM.ARTz" pos="0 0 0" range="-1 1" type="slide" />
+            <joint axis="1 0 0" damping="1" name="BHAM.ARRx" pos="0 0 0" range="-3.14159 3.14159" />
+            <joint axis="0 1 0" damping="1" name="BHAM.ARRy" pos="0 0 0" range="-3.14159 3.14159" />
+            <joint axis="0 0 1" damping="1" name="BHAM.ARRz" pos="0 0 0" range="-3.14159 3.14159" />
+            <body name="BHAM.palm" pos="0 0 0">
+                <inertial diaginertia="0.00149093 0.00115965 0.00102401" mass="0.801064" pos="-0.00433581 0.0278728 -0.00961453" quat="0.0172605 0.553611 0.101044 0.826443" />
+                <geom conaffinity="0" contype="0" mesh="BHAM.righthandbase" name="BHAM.righthandbase" type="mesh" />
+                <geom mesh="BHAM.palm1" name="BHAM.palm1" rgba="0 0 0 0" type="mesh" />
+                <geom mesh="BHAM.palm2" name="BHAM.palm2" rgba="0 0 0 0" type="mesh" />
+                <body name="BHAM.thumb0" pos="0 0 0">
+                    <inertial diaginertia="1.20581e-05 9.65467e-06 4.22719e-06" mass="0.0176" pos="0.034312 0.0535929 0.0406575" quat="0 0 0 1" />
+                    <joint axis="0.549586 -0.456218 0.699872" name="BHAM.thumb_ABD" pos="0.036754 0.056714 0.04474" range="-1 1" />
+                    <geom mesh="BHAM.thumb_basecover" name="BHAM.thumb_basecover" type="mesh" />
+                    <body name="BHAM.thumb1" pos="0 0 0">
+                        <inertial diaginertia="2.47814e-05 2.07636e-05 9.90171e-06" mass="0.0232" pos="0.0437866 0.0847763 0.0603761" quat="0.601855 0.742582 0.23387 -0.177897" />
+                        <joint axis="-0.8142 -0.104803 0.571047" name="BHAM.thumb_IN" pos="0.036754 0.056714 0.04474" range="-0.1 0.8" />
+                        <geom mesh="BHAM.thumb_proximalp" name="BHAM.thumb_proximalp" type="mesh" />
+                        <body name="BHAM.thumb2" pos="0 0 0">
+                            <inertial diaginertia="1.17398e-05 1.17052e-05 7.00527e-06" mass="0.0158" pos="0.0503579 0.113562 0.0743528" quat="0.583097 0.776931 -0.222353 0.0832728" />
+                            <joint axis="-0.8142 -0.104803 0.571047" name="BHAM.thumb_OUT" pos="0.046615 0.10503 0.06708" range="0.087266 1.2217" />
+                            <geom mesh="BHAM.thumb_middlep" name="BHAM.thumb_middlep" type="mesh" />
+                            <body name="BHAM.thumb3" pos="0 0 0">
+                                <inertial diaginertia="9.09431e-06 8.84306e-06 5.34772e-06" mass="0.0137" pos="0.0539685 0.137464 0.0841294" quat="0.539226 0.69153 -0.410629 0.249812" />
+                                <joint axis="-0.8142 -0.104803 0.571047" name="BHAM.thumb_TIP" pos="0.050016 0.12692 0.078691" range="0.087266 1.2217" />
+                                <geom mesh="BHAM.thumb_distalp" name="BHAM.thumb_distalp" type="mesh" />
+                            </body>
+                        </body>
+                    </body>
+                </body>
+                <body name="BHAM.fore0" pos="0 0 0">
+                    <inertial diaginertia="1.20581e-05 9.65469e-06 4.22719e-06" mass="0.0176" pos="0.0291766 0.0808036 -0.0172436" quat="0.97727 -0.207392 -0.0430513 -0.00881044" />
+                    <joint axis="0.087156 0 -0.996195" name="BHAM.fore_ABD" pos="0.029434 0.08577 -0.020007" range="-0.2618 0.2618" />
+                    <geom mesh="BHAM.fore_basecover" name="BHAM.fore_basecover" type="mesh" />
+                    <body name="BHAM.fore1" pos="0 0 0">
+                        <inertial diaginertia="2.47814e-05 2.07636e-05 9.90172e-06" mass="0.0232" pos="0.0298699 0.118593 -0.0219824" quat="0.587334 0.807596 -0.044716 0.0287853" />
+                        <joint axis="0.996195 0 0.087156" name="BHAM.fore_IN" pos="0.029434 0.08577 -0.020007" range="0.087266 1.0471" />
+                        <geom mesh="BHAM.fore_proximalp" name="BHAM.fore_proximalp" type="mesh" />
+                        <body name="BHAM.fore2" pos="0 0 0">
+                            <inertial diaginertia="1.17398e-05 1.17052e-05 7.00528e-06" mass="0.0158" pos="0.0295082 0.151257 -0.022276" quat="0.538583 0.638827 -0.403273 0.373094" />
+                            <joint axis="0.996195 0 0.087156" name="BHAM.fore_OUT" pos="0.029014 0.1399 -0.019052" range="0.087266 1.2217" />
+                            <geom mesh="BHAM.fore_middlep" name="BHAM.fore_middlep" type="mesh" />
+                            <body name="BHAM.fore3" pos="0 0 0">
+                                <inertial diaginertia="9.09435e-06 8.84309e-06 5.34772e-06" mass="0.0137" pos="0.0294646 0.17725 -0.0201939" quat="0.416648 0.511765 -0.56981 0.489712" />
+                                <joint axis="0.996195 0 0.087156" name="BHAM.fore_TIP" pos="0.030576 0.16486 -0.018924" range="0.087266 1.2217" />
+                                <geom mesh="BHAM.fore_distalp" name="BHAM.fore_distalp" type="mesh" />
+                            </body>
+                        </body>
+                    </body>
+                </body>
+                <body name="BHAM.middle0" pos="0 0 0">
+                    <inertial diaginertia="1.20581e-05 9.65469e-06 4.2272e-06" mass="0.0176" pos="0.00261974 0.0908037 -0.0184136" quat="0.978218 -0.20758 -0.000382091 0.000244214" />
+                    <joint axis="0 0 -1" name="BHAM.middle_ABD" pos="0.0026354 0.09577 -0.021189" range="-0.2618 0.2618" />
+                    <geom mesh="BHAM.middle_basecover" name="BHAM.middle_basecover" type="mesh" />
+                    <body name="BHAM.middle1" pos="0 0 0">
+                        <inertial diaginertia="2.47814e-05 2.07636e-05 9.90172e-06" mass="0.0232" pos="0.00289744 0.128593 -0.0231948" quat="0.588725 0.808083 -0.0190541 -0.00646947" />
+                        <joint axis="1 0 0" name="BHAM.middle_IN" pos="0.0026354 0.09577 -0.021189" range="0.087266 1.0471" />
+                        <geom mesh="BHAM.middle_proximalp" name="BHAM.middle_proximalp" type="mesh" />
+                        <body name="BHAM.middle2" pos="0 0 0">
+                            <inertial diaginertia="1.17397e-05 1.17051e-05 7.00528e-06" mass="0.0158" pos="0.00251156 0.161257 -0.0234557" quat="0.555649 0.654479 -0.379419 0.344894" />
+                            <joint axis="1 0 0" name="BHAM.middle_OUT" pos="0.0023 0.1499 -0.020201" range="0.087266 1.2217" />
+                            <geom mesh="BHAM.middle_middlep" name="BHAM.middle_middlep" type="mesh" />
+                            <body name="BHAM.middle3" pos="0 0 0">
+                                <inertial diaginertia="9.09435e-06 8.8431e-06 5.34772e-06" mass="0.0137" pos="0.00264958 0.18725 -0.0213778" quat="0.441105 0.532638 -0.551095 0.466924" />
+                                <joint axis="1 0 0" name="BHAM.middle_TIP" pos="0.003867 0.17486 -0.02021" range="0.087266 1.2217" />
+                                <geom mesh="BHAM.middle_distalp" name="BHAM.middle_distalp" type="mesh" />
+                                <site name="BHAM.mid_finger_center" pos="0.003867 0.17486 -0.02021" />
+                            </body>
+                        </body>
+                    </body>
+                </body>
+                <body name="BHAM.ring0" pos="0 0 0">
+                    <inertial diaginertia="1.20581e-05 9.6547e-06 4.2272e-06" mass="0.0176" pos="-0.023938 0.0856037 -0.0172645" quat="0.977304 -0.207372 0.0422874 0.0092984" />
+                    <joint axis="-0.0774016 0 -0.997" name="BHAM.ring_ABD" pos="-0.024164 0.09057 -0.020031" range="-0.2618 0.2618" />
+                    <geom mesh="BHAM.ring_basecover" name="BHAM.ring_basecover" type="mesh" />
+                    <body name="BHAM.ring1" pos="0 0 0">
+                        <inertial diaginertia="2.47814e-05 2.07636e-05 9.90172e-06" mass="0.0232" pos="-0.0240781 0.123393 -0.0220517" quat="0.588996 0.807031 0.0066435 -0.0417111" />
+                        <joint axis="0.997 0 -0.0774016" name="BHAM.ring_IN" pos="-0.024164 0.09057 -0.020031" range="0.087266 1.0471" />
+                        <geom mesh="BHAM.ring_proximalp" name="BHAM.ring_proximalp" type="mesh" />
+                        <body name="BHAM.ring2" pos="0 0 0">
+                            <inertial diaginertia="1.17397e-05 1.17051e-05 7.00528e-06" mass="0.0158" pos="-0.0244852 0.156057 -0.022278" quat="0.571688 0.668919 -0.354786 0.315986" />
+                            <joint axis="0.997 0 -0.0774016" name="BHAM.ring_OUT" pos="-0.024412 0.1447 -0.019017" range="0.087266 1.2217" />
+                            <geom mesh="BHAM.ring_middlep" name="BHAM.ring_middlep" type="mesh" />
+                            <body name="BHAM.ring3" pos="0 0 0">
+                                <inertial diaginertia="9.09435e-06 8.8431e-06 5.34772e-06" mass="0.0137" pos="-0.0241666 0.18205 -0.02022" quat="0.464721 0.552497 -0.531331 0.443248" />
+                                <joint axis="0.997 0 -0.0774016" name="BHAM.ring_TIP" pos="-0.022852 0.16966 -0.019162" range="0.087266 1.2217" />
+                                <geom mesh="BHAM.ring_distalp" name="BHAM.ring_distalp" type="mesh" />
+                            </body>
+                        </body>
+                    </body>
+                </body>
+                <body name="BHAM.little0" pos="0 0 0">
+                    <inertial diaginertia="1.20581e-05 9.65468e-06 4.22719e-06" mass="0.0176" pos="-0.0502945 0.0666036 -0.0138051" quat="0.97453 -0.206766 0.0848757 0.018333" />
+                    <joint axis="-0.166745 0 -0.986" name="BHAM.little_ABD" pos="-0.050761 0.07157 -0.016541" range="-0.2618 0.2618" />
+                    <geom mesh="BHAM.little_basecover" name="BHAM.little_basecover" type="mesh" />
+                    <body name="BHAM.little1" pos="0 0 0">
+                        <inertial diaginertia="2.47814e-05 2.07635e-05 9.90174e-06" mass="0.0232" pos="-0.0508513 0.104393 -0.0185619" quat="0.588146 0.804443 0.0323287 -0.0768729" />
+                        <joint axis="0.986 0 -0.166745" name="BHAM.little_IN" pos="-0.050761 0.07157 -0.016541" range="0.087266 1.0471" />
+                        <geom mesh="BHAM.little_proximalp" name="BHAM.little_proximalp" type="mesh" />
+                        <body name="BHAM.little2" pos="0 0 0">
+                            <inertial diaginertia="1.17397e-05 1.17051e-05 7.00528e-06" mass="0.0158" pos="-0.0512766 0.137057 -0.0187519" quat="0.586633 0.682081 -0.329479 0.28648" />
+                            <joint axis="0.986 0 -0.166745" name="BHAM.little_OUT" pos="-0.05092 0.1257 -0.015509" range="0.087266 1.2217" />
+                            <geom mesh="BHAM.little_middlep" name="BHAM.little_middlep" type="mesh" />
+                            <body name="BHAM.little3" pos="0 0 0">
+                                <inertial diaginertia="9.09435e-06 8.84309e-06 5.34772e-06" mass="0.0137" pos="-0.0507799 0.16305 -0.0167295" quat="0.487456 0.571303 -0.510555 0.418728" />
+                                <joint axis="0.986 0 -0.166745" name="BHAM.little_TIP" pos="-0.049378 0.15066 -0.01579" range="0.087266 1.2217" />
+                                <geom mesh="BHAM.little_distalp" name="BHAM.little_distalp" type="mesh" />
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    <body name="obj_000182.obj_000182" pos="-0.15636607938781077 -0.09392838883227189 0.08839010912318379" quat="0.10616432883279238 0.007477883989845323 -0.004608916753422413 0.9943097980111013">
+            <inertial diaginertia="0.00744095 0.00714896 0.00240099" mass="2.47812" pos="-3.79415e-05 2.67639e-05 -0.000328042" quat="0.999775 -0.000692392 0.00890713 -0.0192306" />
+            <joint name="obj_000182.obj_000182_joint" type="free" />
+            <geom conaffinity="0" contype="0" mesh="obj_000182.mesh_obj_000182" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000182.obj_000182_vhacdcvx_0" name="obj_000182.obj_000182_vhacdcvx_0" type="mesh" />
+        </body>
+    <body name="obj_000189.obj_000189" pos="0.12086607093863355 -0.13277249027940294 0.01591252773188012" quat="0.47907427574405614 -0.15172379657035273 0.6991325623459146 0.5086073024861345">
+            <inertial diaginertia="0.000137662 0.000137651 7.7149e-06" mass="0.105537" pos="-9.46587e-06 6.62363e-05 0.0115701" quat="0.95903 0.000908038 -0.000378933 -0.283302" />
+            <joint name="obj_000189.obj_000189_joint" type="free" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000189.obj_000189_vhacdcvx_0" name="obj_000189.obj_000189_vhacdcvx_0" type="mesh" />
+            <geom conaffinity="0" contype="0" mesh="obj_000189.mesh_obj_000189" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000189.obj_000189_vhacdcvx_3" name="obj_000189.obj_000189_vhacdcvx_3" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000189.obj_000189_vhacdcvx_1" name="obj_000189.obj_000189_vhacdcvx_1" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000189.obj_000189_vhacdcvx_2" name="obj_000189.obj_000189_vhacdcvx_2" type="mesh" />
+        </body>
+    <body name="obj_000186.obj_000186" pos="-0.0679621321588727 -0.23215717434866032 0.12400801332555189" quat="0.10551013256003333 -0.008115797688675347 -0.010678549040684241 -0.9943277700765609">
+            <inertial diaginertia="0.0146182 0.0146026 0.00134983" mass="1.76292" pos="-8.29492e-05 8.91098e-05 -0.000163" quat="0.998586 0.00532959 0.00100346 0.0528841" />
+            <joint name="obj_000186.obj_000186_joint" type="free" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000186.obj_000186_vhacdcvx_3" name="obj_000186.obj_000186_vhacdcvx_3" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000186.obj_000186_vhacdcvx_1" name="obj_000186.obj_000186_vhacdcvx_1" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000186.obj_000186_vhacdcvx_5" name="obj_000186.obj_000186_vhacdcvx_5" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000186.obj_000186_vhacdcvx_0" name="obj_000186.obj_000186_vhacdcvx_0" type="mesh" />
+            <geom conaffinity="0" contype="0" mesh="obj_000186.mesh_obj_000186" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000186.obj_000186_vhacdcvx_4" name="obj_000186.obj_000186_vhacdcvx_4" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000186.obj_000186_vhacdcvx_2" name="obj_000186.obj_000186_vhacdcvx_2" type="mesh" />
+        </body>
+    <body name="obj_000183.obj_000183" pos="-0.021322913677204403 -0.06731269770783391 0.08835523324449479" quat="0.9090695613983903 -0.055828638961354225 0.042923298660697745 -0.4106498338520858">
+            <inertial diaginertia="0.00232904 0.00231325 0.000567347" mass="1.05652" pos="-7.61511e-05 -0.000192226 -0.0173727" quat="0.997879 0.0335239 0.000854364 0.0557964" />
+            <joint name="obj_000183.obj_000183_joint" type="free" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000183.obj_000183_vhacdcvx_5" name="obj_000183.obj_000183_vhacdcvx_5" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000183.obj_000183_vhacdcvx_6" name="obj_000183.obj_000183_vhacdcvx_6" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000183.obj_000183_vhacdcvx_8" name="obj_000183.obj_000183_vhacdcvx_8" type="mesh" />
+            <geom conaffinity="0" contype="0" mesh="obj_000183.mesh_obj_000183" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000183.obj_000183_vhacdcvx_0" name="obj_000183.obj_000183_vhacdcvx_0" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000183.obj_000183_vhacdcvx_3" name="obj_000183.obj_000183_vhacdcvx_3" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000183.obj_000183_vhacdcvx_4" name="obj_000183.obj_000183_vhacdcvx_4" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000183.obj_000183_vhacdcvx_1" name="obj_000183.obj_000183_vhacdcvx_1" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000183.obj_000183_vhacdcvx_7" name="obj_000183.obj_000183_vhacdcvx_7" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000183.obj_000183_vhacdcvx_2" name="obj_000183.obj_000183_vhacdcvx_2" type="mesh" />
+        </body>
+    <body name="obj_000180.obj_000180" pos="-0.1432589404968122 0.17762077176797195 0.08916467096425029" quat="0.5742463934804944 -0.04420936897575474 0.06284937439120179 -0.8150684433886795">
+            <inertial diaginertia="0.020823 0.0178207 0.0163387" mass="3.03456" pos="0.0011899 0.00389078 -0.000155271" quat="0.963553 -0.267362 -0.00658211 0.00633984" />
+            <joint name="obj_000180.obj_000180_joint" type="free" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_23" name="obj_000180.obj_000180_vhacdcvx_23" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_24" name="obj_000180.obj_000180_vhacdcvx_24" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_19" name="obj_000180.obj_000180_vhacdcvx_19" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_17" name="obj_000180.obj_000180_vhacdcvx_17" type="mesh" />
+            <geom conaffinity="0" contype="0" mesh="obj_000180.mesh_obj_000180" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_26" name="obj_000180.obj_000180_vhacdcvx_26" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_30" name="obj_000180.obj_000180_vhacdcvx_30" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_11" name="obj_000180.obj_000180_vhacdcvx_11" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_25" name="obj_000180.obj_000180_vhacdcvx_25" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_31" name="obj_000180.obj_000180_vhacdcvx_31" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_6" name="obj_000180.obj_000180_vhacdcvx_6" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_15" name="obj_000180.obj_000180_vhacdcvx_15" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_1" name="obj_000180.obj_000180_vhacdcvx_1" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_27" name="obj_000180.obj_000180_vhacdcvx_27" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_16" name="obj_000180.obj_000180_vhacdcvx_16" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_2" name="obj_000180.obj_000180_vhacdcvx_2" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_20" name="obj_000180.obj_000180_vhacdcvx_20" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_8" name="obj_000180.obj_000180_vhacdcvx_8" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_12" name="obj_000180.obj_000180_vhacdcvx_12" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_22" name="obj_000180.obj_000180_vhacdcvx_22" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_3" name="obj_000180.obj_000180_vhacdcvx_3" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_18" name="obj_000180.obj_000180_vhacdcvx_18" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_21" name="obj_000180.obj_000180_vhacdcvx_21" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_29" name="obj_000180.obj_000180_vhacdcvx_29" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_7" name="obj_000180.obj_000180_vhacdcvx_7" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_5" name="obj_000180.obj_000180_vhacdcvx_5" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_13" name="obj_000180.obj_000180_vhacdcvx_13" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_0" name="obj_000180.obj_000180_vhacdcvx_0" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_28" name="obj_000180.obj_000180_vhacdcvx_28" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_10" name="obj_000180.obj_000180_vhacdcvx_10" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_9" name="obj_000180.obj_000180_vhacdcvx_9" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_14" name="obj_000180.obj_000180_vhacdcvx_14" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000180.obj_000180_vhacdcvx_4" name="obj_000180.obj_000180_vhacdcvx_4" type="mesh" />
+        </body>
+    <body name="obj_000191.obj_000191" pos="0.020642192970557027 0.2609051394431208 0.01671486866730909" quat="0.19493798825291947 -0.679703692780382 0.19493345321770383 0.6797080399504173">
+            <inertial diaginertia="0.00109969 0.000614098 0.000603741" mass="0.309491" pos="-0.00313183 -0.000648749 0.000400217" quat="0.66134 0.750086 -0.000298488 0.000172441" />
+            <joint name="obj_000191.obj_000191_joint" type="free" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_30" name="obj_000191.obj_000191_vhacdcvx_30" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_16" name="obj_000191.obj_000191_vhacdcvx_16" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_1" name="obj_000191.obj_000191_vhacdcvx_1" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_6" name="obj_000191.obj_000191_vhacdcvx_6" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_3" name="obj_000191.obj_000191_vhacdcvx_3" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_27" name="obj_000191.obj_000191_vhacdcvx_27" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_23" name="obj_000191.obj_000191_vhacdcvx_23" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_13" name="obj_000191.obj_000191_vhacdcvx_13" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_10" name="obj_000191.obj_000191_vhacdcvx_10" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_15" name="obj_000191.obj_000191_vhacdcvx_15" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_12" name="obj_000191.obj_000191_vhacdcvx_12" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_19" name="obj_000191.obj_000191_vhacdcvx_19" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_8" name="obj_000191.obj_000191_vhacdcvx_8" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_29" name="obj_000191.obj_000191_vhacdcvx_29" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_7" name="obj_000191.obj_000191_vhacdcvx_7" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_18" name="obj_000191.obj_000191_vhacdcvx_18" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_24" name="obj_000191.obj_000191_vhacdcvx_24" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_28" name="obj_000191.obj_000191_vhacdcvx_28" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_21" name="obj_000191.obj_000191_vhacdcvx_21" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_25" name="obj_000191.obj_000191_vhacdcvx_25" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_0" name="obj_000191.obj_000191_vhacdcvx_0" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_9" name="obj_000191.obj_000191_vhacdcvx_9" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_5" name="obj_000191.obj_000191_vhacdcvx_5" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_26" name="obj_000191.obj_000191_vhacdcvx_26" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_2" name="obj_000191.obj_000191_vhacdcvx_2" type="mesh" />
+            <geom conaffinity="0" contype="0" mesh="obj_000191.mesh_obj_000191" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_14" name="obj_000191.obj_000191_vhacdcvx_14" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_31" name="obj_000191.obj_000191_vhacdcvx_31" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_20" name="obj_000191.obj_000191_vhacdcvx_20" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_11" name="obj_000191.obj_000191_vhacdcvx_11" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_22" name="obj_000191.obj_000191_vhacdcvx_22" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_4" name="obj_000191.obj_000191_vhacdcvx_4" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000191.obj_000191_vhacdcvx_17" name="obj_000191.obj_000191_vhacdcvx_17" type="mesh" />
+        </body>
+    <body name="obj_000187.obj_000187" pos="-0.24373254060758548 -0.18651396260053454 0.0734047575998219" quat="0.7800695363285762 -0.006819712520205986 0.016173013882351418 0.6254465953502532">
+            <inertial diaginertia="0.00165903 0.00165663 0.000335362" mass="0.730391" pos="0.00282732 -0.000179182 0.00607866" quat="0.967694 0.0127674 -0.0303782 -0.249965" />
+            <joint name="obj_000187.obj_000187_joint" type="free" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000187.obj_000187_vhacdcvx_4" name="obj_000187.obj_000187_vhacdcvx_4" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000187.obj_000187_vhacdcvx_0" name="obj_000187.obj_000187_vhacdcvx_0" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000187.obj_000187_vhacdcvx_2" name="obj_000187.obj_000187_vhacdcvx_2" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000187.obj_000187_vhacdcvx_1" name="obj_000187.obj_000187_vhacdcvx_1" type="mesh" />
+            <geom condim="4" friction="10 0.005 0.0001" group="3" mesh="obj_000187.obj_000187_vhacdcvx_3" name="obj_000187.obj_000187_vhacdcvx_3" type="mesh" />
+            <geom conaffinity="0" contype="0" mesh="obj_000187.mesh_obj_000187" type="mesh" />
+        </body>
+    </worldbody>
+    <contact>
+        <exclude body1="BHAM.floor" body2="BHAM.forearm" />
+        <exclude body1="BHAM.floor" body2="BHAM.palm" />
+        <exclude body1="BHAM.floor" body2="BHAM.thumb1" />
+        <exclude body1="BHAM.floor" body2="BHAM.thumb2" />
+        <exclude body1="BHAM.floor" body2="BHAM.thumb3" />
+        <exclude body1="BHAM.floor" body2="BHAM.fore1" />
+        <exclude body1="BHAM.floor" body2="BHAM.fore2" />
+        <exclude body1="BHAM.floor" body2="BHAM.fore3" />
+        <exclude body1="BHAM.floor" body2="BHAM.middle1" />
+        <exclude body1="BHAM.floor" body2="BHAM.middle2" />
+        <exclude body1="BHAM.floor" body2="BHAM.middle3" />
+        <exclude body1="BHAM.floor" body2="BHAM.ring1" />
+        <exclude body1="BHAM.floor" body2="BHAM.ring2" />
+        <exclude body1="BHAM.floor" body2="BHAM.ring3" />
+        <exclude body1="BHAM.floor" body2="BHAM.little1" />
+        <exclude body1="BHAM.floor" body2="BHAM.little2" />
+        <exclude body1="BHAM.floor" body2="BHAM.little3" />
+        <exclude body1="BHAM.palm" body2="BHAM.thumb1" />
+        <exclude body1="BHAM.palm" body2="BHAM.fore1" />
+        <exclude body1="BHAM.palm" body2="BHAM.middle1" />
+        <exclude body1="BHAM.palm" body2="BHAM.ring1" />
+        <exclude body1="BHAM.palm" body2="BHAM.little1" />
+    </contact>
+    <equality>
+        <joint joint1="BHAM.thumb_OUT" joint2="BHAM.thumb_TIP" polycoef="0 1 0 0 0" />
+        <joint joint1="BHAM.fore_OUT" joint2="BHAM.fore_TIP" polycoef="0 1 0 0 0" />
+        <joint joint1="BHAM.middle_OUT" joint2="BHAM.middle_TIP" polycoef="0 1 0 0 0" />
+        <joint joint1="BHAM.ring_OUT" joint2="BHAM.ring_TIP" polycoef="0 1 0 0 0" />
+        <joint joint1="BHAM.little_OUT" joint2="BHAM.little_TIP" polycoef="0 1 0 0 0" />
+    </equality>
+    <actuator>
+        <general biasprm="0 -3000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-2 2" forcerange="-100 100" gainprm="3000 0 0 0 0 0 0 0 0 0" joint="BHAM.ARTx" name="BHAM.A_ARTx" />
+        <general biasprm="0 -3000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-2 2" forcerange="-100 100" gainprm="3000 0 0 0 0 0 0 0 0 0" joint="BHAM.ARTy" name="BHAM.A_ARTy" />
+        <general biasprm="0 -3000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-1 1" forcerange="-100 100" gainprm="3000 0 0 0 0 0 0 0 0 0" joint="BHAM.ARTz" name="BHAM.A_ARTz" />
+        <general biasprm="0 -30 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-3.14159 3.14159" forcerange="-100 100" gainprm="30 0 0 0 0 0 0 0 0 0" joint="BHAM.ARRx" name="BHAM.A_ARRx" />
+        <general biasprm="0 -30 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-3.14159 3.14159" forcerange="-100 100" gainprm="30 0 0 0 0 0 0 0 0 0" joint="BHAM.ARRy" name="BHAM.A_ARRy" />
+        <general biasprm="0 -30 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-3.14159 3.14159" forcerange="-100 100" gainprm="30 0 0 0 0 0 0 0 0 0" joint="BHAM.ARRz" name="BHAM.A_ARRz" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-3.14159 3.14159" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.thumb_ABD" name="BHAM.A_thumb_ABD" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-3.14159 3.14159" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.thumb_IN" name="BHAM.A_thumb_IN" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-3.14159 3.14159" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.thumb_OUT" name="BHAM.A_thumb_OUT" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-0.2618 0.2618" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.fore_ABD" name="BHAM.A_fore_ABD" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="0.087266 1.0471" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.fore_IN" name="BHAM.A_fore_IN" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="0.087266 1.2217" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.fore_OUT" name="BHAM.A_fore_OUT" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-0.2618 0.2618" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.middle_ABD" name="BHAM.A_middle_ABD" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="0.087266 1.0471" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.middle_IN" name="BHAM.A_middle_IN" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="0.087266 1.2217" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.middle_OUT" name="BHAM.A_middle_OUT" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-0.2618 0.2618" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.ring_ABD" name="BHAM.A_ring_ABD" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="0.087266 1.0471" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.ring_IN" name="BHAM.A_ring_IN" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="0.087266 1.2217" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.ring_OUT" name="BHAM.A_ring_OUT" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="-0.2618 0.2618" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.little_ABD" name="BHAM.A_little_ABD" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="0.087266 1.0471" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.little_IN" name="BHAM.A_little_IN" />
+        <general biasprm="0 -2000 0 0 0 0 0 0 0 0" class="BHAM" ctrlrange="0.087266 1.2217" forcerange="-5 5" gainprm="2000 0 0 0 0 0 0 0 0 0" joint="BHAM.little_OUT" name="BHAM.A_little_OUT" />
+    </actuator>
+<sensor /><tendon /></mujoco>
