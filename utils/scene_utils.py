@@ -51,9 +51,9 @@ def load_hand(pos, quat, joint_configuration,color = [0,0,255]):
 
 def load_scene_pointcloud(img_id, use_base_coordinate=True,split = 'train'):
     if (split =='train' or split =='val'):
-        file_path = os.path.join(dir_path,'../train_dataset/output/bop_data/lm/train_pbr',str(img_id//1000).zfill(6))
+        file_path = os.path.join(dir_path,'../../data/train_data/images',str(img_id//1000).zfill(6))
     else:
-        file_path = os.path.join(dir_path,'../test_dataset/output/bop_data/lm/train_pbr',str(img_id//1000).zfill(6))
+        file_path = os.path.join(dir_path,'../../data/test_data/images',str(img_id//1000).zfill(6))
         # print('***')
     with open(os.path.join(file_path,'../../camera.json')) as f:
         intrinsics = json.load(f)
@@ -76,9 +76,9 @@ def load_scene_pointcloud(img_id, use_base_coordinate=True,split = 'train'):
 def load_scene(img_id,use_base_coordinate = True,use_simplified_model = False,split = 'train'):
     meshes = []
     if (split =='train' or split =='val'):
-        file_path = os.path.join(dir_path, '../train_dataset/output/bop_data/lm/train_pbr', str(img_id//1000).zfill(6))
+        file_path = os.path.join(dir_path, '../../data/train_data/images', str(img_id//1000).zfill(6))
     else:
-        file_path = os.path.join(dir_path,'../test_dataset/output/bop_data/lm/train_pbr',str(img_id//1000).zfill(6))
+        file_path = os.path.join(dir_path,'../../data/test_data/images',str(img_id//1000).zfill(6))
         # print('***')
     # load obj poses
     with open(os.path.join(file_path,'scene_gt.json')) as f:
@@ -102,11 +102,11 @@ def load_scene(img_id,use_base_coordinate = True,use_simplified_model = False,sp
         if (split =='train' or split =='val'):
             if use_simplified_model:
                 mesh = trimesh.load(
-                    os.path.join(dir_path, '../train_dataset/lm/simplified_models', 'obj_' + str(obj['obj_id']).zfill(6) + '_simplified.ply'))
+                    os.path.join(dir_path, '../../data/train_data/simplified_models', 'obj_' + str(obj['obj_id']).zfill(6) + '_simplified.ply'))
             else:
-                mesh = trimesh.load(os.path.join(dir_path,'../train_dataset/lm/models','obj_' + str(obj['obj_id']).zfill(6)+'.ply'))
+                mesh = trimesh.load(os.path.join(dir_path,'../../data/train_data/models','obj_' + str(obj['obj_id']).zfill(6)+'.ply'))
         else:
-            mesh = trimesh.load(os.path.join(dir_path,'../test_dataset/lm/models','obj_' + str(obj['obj_id']).zfill(6)+'.ply'))
+            mesh = trimesh.load(os.path.join(dir_path,'../../data/test_data/models','obj_' + str(obj['obj_id']).zfill(6)+'.ply'))
         T_obj = trimesh.transformations.translation_matrix(np.asarray(obj['cam_t_m2c'])*0.001)
         quat_obj = trimesh.transformations.quaternion_from_matrix(np.asarray(obj['cam_R_m2c']).reshape(3,3))
         R_obj = trimesh.transformations.quaternion_matrix(quat_obj)
@@ -124,7 +124,7 @@ def load_scene(img_id,use_base_coordinate = True,use_simplified_model = False,sp
 
 def load_scene_grasp(img_id,taxonomy):
     scene_idx = img_id//cfg['num_images_per_scene']
-    file_path = os.path.join(dir_path,'../scene_grasps',f'scene_grasp_{str(scene_idx).zfill(4)}.npy')
+    file_path = os.path.join(dir_path,'../../data/scene_grasps',f'scene_grasp_{str(scene_idx).zfill(4)}.npy')
     scene_grasp = np.load(file_path,allow_pickle=True).item()
     ungraspable_points = scene_grasp[taxonomy]['0']
     graspable_points = scene_grasp[taxonomy]['1']
