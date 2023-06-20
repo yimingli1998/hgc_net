@@ -1,16 +1,12 @@
-import numpy as np
 import trimesh
 import os
-import json
-import pickle
-from tqdm import tqdm
-from hitdlr_kinematics.hitdlr_layer.hitdlr_layer import HitdlrLayer
 from hitdlr_kinematics.hitdlr_layer.taxonomy_20dof import grasp_dict_20f
 from utils import common_util, scene_utils
-import torch
-import copy
+
 import yaml
-with open('config/base_config.yaml', 'r') as f:
+
+CUR_PATH = os.path.dirname(os.path.abspath(__file__))
+with open(os.path.join(CUR_PATH,'config/base_config.yaml'), 'r') as f:
     cfg = yaml.load(f,Loader=yaml.FullLoader)
 
 if  __name__ =='__main__':

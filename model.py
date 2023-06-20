@@ -14,6 +14,7 @@ import pointnet2.pointnet2_utils as pointnet2_utils
 import pointnet2.pytorch_utils as pt_utils
 import loss_utils
 import yaml
+
 with open('config/base_config.yaml', 'r') as f:
     cfg = yaml.load(f,Loader=yaml.FullLoader)
 

@@ -10,7 +10,9 @@ from utils import common_util, scene_utils
 import torch
 import copy
 import yaml
-with open('config/base_config.yaml', 'r') as f:
+
+CUR_PATH = os.path.dirname(os.path.abspath(__file__))
+with open(os.path.join(CUR_PATH,'config/base_config.yaml'), 'r') as f:
     cfg = yaml.load(f,Loader=yaml.FullLoader)
 
 def save_taxonomy_hand(hand_path):
@@ -28,23 +30,21 @@ def save_taxonomy_hand(hand_path):
 def collision_checker(index):
     print(f"scene {str(index//cfg['num_images_per_scene'])} begin!\n")
     scene = trimesh.Scene()
-    scene_mesh,gt_objs,transform_list = scene_utils.load_scene(index,use_base_coordinate = cfg['use_base_coordinate'],use_simplified_model = True)
-    print(scene_mesh.faces.shape)
+    scene_mesh,gt_objs,transform_list = scene_utils.load_scene(index,use_base_coordinate = cfg['use_base_coordinate'],use_simplified_model=True)
     scene.add_geometry(scene_mesh)
-    # scene.show()
     collision_manager,_ = trimesh.collision.scene_to_collision(scene)
     taxonomies = grasp_dict_20f.keys()
     taxonomy_hand = {}
     scene_grasp = {}
-    scene_grasp_path = os.path.join('scene_grasps')
+    scene_grasp_path = os.path.join(CUR_PATH,'../data/scene_grasps')
     if os.path.exists(scene_grasp_path) is False:
         os.makedirs(scene_grasp_path)
     for taxonomy in taxonomies:
-        taxonomy_hand['taxonomy'] = trimesh.load(f'hand_taxonomy_mesh/{taxonomy}.stl')
+        taxonomy_hand['taxonomy'] = trimesh.load(f'../data/hand_taxonomy_mesh/{taxonomy}.stl')
         scene_grasp[taxonomy] = {'0':[],'1':[]}
     for obj,transform in tqdm(zip(gt_objs,transform_list),total=len(gt_objs),desc= f"collision detection for scene {str(index//cfg['num_images_per_scene'])}"):
         obj_name = str(obj['obj_id'])
-        hand_grasps = np.load(f'grasp_dataset/obj_{obj_name.zfill(6)}.npy',allow_pickle=True).item()
+        hand_grasps = np.load(os.path.join(CUR_PATH,f'../data/grasp_dataset/obj_{obj_name.zfill(6)}.npy'),allow_pickle=True).item()
         for k_p in hand_grasps.keys():
             # kp_grasps: point,DLR_init,Parallel_Extension,Palmar_Pinch,Precision_Sphere,Large_Wrap,tax_name
             kp_grasps = hand_grasps[k_p]
@@ -67,15 +67,15 @@ def collision_checker(index):
                         final_t = copy.deepcopy(final_pose[:3, 3])
                         final_q = trimesh.transformations.quaternion_from_matrix(final_pose[:3,:3])
                         hand_mesh = scene_utils.load_init_hand(final_t,final_q,taxonomy_hand['taxonomy'])
-                        print(hand_mesh.faces.shape)
+                        # print(hand_mesh.faces.shape)
                         # hand_mesh = scene_utils.load_hand(final_t,final_q,hand_joint)
                         collision  = collision_manager.in_collision_single(hand_mesh)
                         if not collision:
                             scene_kp_point = common_util.transform_points(kp_grasps['point'][:3][np.newaxis,:],transform)[0]
                             label = np.concatenate([scene_kp_point,final_t,final_q,kp_g[7:]])
                             scene_grasp[taxonomy]['1'].append(label)
-                            scene.add_geometry(hand_mesh)
-                            scene.show()
+                            # scene.add_geometry(hand_mesh)
+                            # scene.show()
                             break
                     else:
                         scene_kp_point = common_util.transform_points(kp_grasps['point'][:3][np.newaxis,:],transform)[0]
@@ -102,22 +102,22 @@ def parallel_collision_checker(proc):
 
 
 if __name__ =='__main__':
-    # hand_path = 'hand_taxonomy_mesh'
-    # if os.path.exists(hand_path) is False:
-    #     os.makedirs(hand_path)
-    # save_taxonomy_hand(hand_path)
-    # parallel_collision_checker(proc = 16)
+    hand_path = os.path.join(CUR_PATH,'../data/hand_taxonomy_mesh')
+    if os.path.exists(hand_path) is False:
+        os.makedirs(hand_path)
+    save_taxonomy_hand(hand_path)
+    parallel_collision_checker(proc = 16)
     # collision_checker(1000)
 
-    scene = trimesh.Scene()
-    scene_mesh,gt_objs,transform_list = scene_utils.load_scene(2000)
-    scene.add_geometry(scene_mesh)
-    taxonomies = grasp_dict_20f.keys()
-    for taxonomy in taxonomies:
-        if taxonomy =='DLR_init':
-            continue
-        hand_meshes = scene_utils.load_scene_grasp(2000,taxonomy)
-        if hand_meshes:
-            scene.add_geometry(hand_meshes)
-        scene.show()
+    # scene = trimesh.Scene()
+    # scene_mesh,gt_objs,transform_list = scene_utils.load_scene(2000)
+    # scene.add_geometry(scene_mesh)
+    # taxonomies = grasp_dict_20f.keys()
+    # for taxonomy in taxonomies:
+    #     if taxonomy =='DLR_init':
+    #         continue
+    #     hand_meshes = scene_utils.load_scene_grasp(2000,taxonomy)
+    #     if hand_meshes:
+    #         scene.add_geometry(hand_meshes)
+    #     scene.show()
 

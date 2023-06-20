@@ -5,11 +5,14 @@ import numpy as np
 import os
 from utils import scene_utils
 import yaml
-with open('config/base_config.yaml', 'r') as f:
+import sys
+
+CUR_PATH = os.path.dirname(os.path.abspath(__file__))
+with open(os.path.join(CUR_PATH,'config/base_config.yaml'), 'r') as f:
     cfg = yaml.load(f,Loader=yaml.FullLoader)
 
-files = glob.glob('train_dataset/lm/models/*.ply')
-grasp_path = 'grasp_dataset'
+files = glob.glob(os.path.join(CUR_PATH,'../data/train_data/models/*.ply'))
+grasp_path = os.path.join(CUR_PATH,'../data/grasp_dataset')
 for f in files:
     obj = trimesh.load(f)
     obj.visual.face_colors = [255,215,0]
@@ -39,6 +42,3 @@ for f in files:
             hand = scene_utils.load_hand(hand_conf[:3],hand_conf[3:7],hand_conf[8:],color = cfg['color'][t])
             scene.add_geometry(hand)
     scene.show()
-
-    obj.show()
-

@@ -13,7 +13,9 @@ import time
 import loss_utils
 from scipy import spatial
 import yaml
-with open('config/base_config.yaml', 'r') as f:
+
+CUR_PATH = os.path.dirname(os.path.abspath(__file__))
+with open(os.path.join(CUR_PATH,'config/base_config.yaml'), 'r') as f:
     cfg = yaml.load(f,Loader=yaml.FullLoader)
 
 class GraspDataset:
@@ -153,10 +155,10 @@ class GraspDataset:
         # return 1
 
 if  __name__ =='__main__':
-    data_path = 'point_grasp_data'
+    data_path = os.path.join(CUR_PATH,'../data/point_grasp_data')
     gd = GraspDataset(data_path,split = 'train')
     # gd.__getitem__(180)
-    dataloader = torch.utils.data.DataLoader(gd, batch_size=1, shuffle=True,
+    dataloader = torch.utils.data.DataLoader(gd, batch_size=1, shuffle=False,
                                              num_workers=1)
     for i,data in enumerate(dataloader):
         pass
