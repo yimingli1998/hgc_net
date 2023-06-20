@@ -12,10 +12,12 @@ from dataset import GraspDataset
 from model import backbone_pointnet2
 import yaml
 from utils import scene_utils
-with open('config/base_config.yaml', 'r') as f:
+
+CUR_PATH = os.path.dirname(os.path.abspath(__file__))
+with open(os.path.join(CUR_PATH,'config/base_config.yaml'), 'r') as f:
     cfg = yaml.load(f,Loader=yaml.FullLoader)
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = CUR_PATH
 
 parser = argparse.ArgumentParser('Train DLR Grasp')
 parser.add_argument('--batchsize', type=int, default=cfg['train']['batchsize'], help='input batch size')
@@ -186,7 +188,7 @@ def test(test_dataloader,model):
 if __name__ == '__main__':
     os.environ["CUDA_VISIBLE_DEVICES"] = FLAGS.gpu
     print('Using GPUs ' + os.environ["CUDA_VISIBLE_DEVICES"])
-    dataset_path = 'point_grasp_data'
+    dataset_path = os.path.join(CUR_PATH,'../data/point_grasp_data')
     train_data = GraspDataset(dataset_path,split='train')
     train_dataloader = torch.utils.data.DataLoader(train_data,
                                                    batch_size = FLAGS.batchsize,

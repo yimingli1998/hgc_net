@@ -16,7 +16,8 @@ import loss_utils
 from utils import scene_utils,grasp_utils,common_util
 import trimesh
 import random
-with open('config/base_config.yaml', 'r') as f:
+CUR_PATH = os.path.dirname(os.path.abspath(__file__))
+with open(os.path.join(CUR_PATH,'config/base_config.yaml'), 'r') as f:
     cfg = yaml.load(f,Loader=yaml.FullLoader)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -73,9 +74,9 @@ def vis_model(model,dataloader):
     model = model.eval()
     taxonomy = ['Parallel_Extension','Pen_Pinch','Palmar_Pinch','Precision_Sphere','Large_Wrap']
     taxonomy_hand = {}
-    init_hand = trimesh.load(f'hand_taxonomy_mesh/DLR_init.stl')
+    init_hand = trimesh.load(f'../data/hand_taxonomy_mesh/DLR_init.stl')
     for t in taxonomy:
-        taxonomy_hand[t] = trimesh.load(f'hand_taxonomy_mesh/{t}.stl')
+        taxonomy_hand[t] = trimesh.load(f'../data/hand_taxonomy_mesh/{t}.stl')
     for i, (data,index) in enumerate(dataloader):
         bat_point = copy.deepcopy(data['point'])
         bat_sem = copy.deepcopy(data['sem'])
@@ -176,7 +177,7 @@ def vis_model(model,dataloader):
 if __name__ == '__main__':
     os.environ["CUDA_VISIBLE_DEVICES"] = FLAGS.gpu
     print('Using GPUs ' + os.environ["CUDA_VISIBLE_DEVICES"])
-    dataset_path = 'point_grasp_data'
+    dataset_path = os.path.join(CUR_PATH,'../data/point_grasp_data')
     train_data = GraspDataset(dataset_path,split='train')
     train_dataloader = torch.utils.data.DataLoader(train_data,
                                                    batch_size = FLAGS.batchsize,
