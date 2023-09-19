@@ -36,12 +36,12 @@ train:
   theme:            test
   gp_weight:        [1,10]
   printfreq:        50
-  use_bin_loss:     False
+  use_bin_loss:     True
 eval:
 #  model_path:       'experiment/20210908_224520_grasp_bs32/checkpoints'
 #  epoch:            74
-  model_path:       'experiment/20210913_224000_quat_loss32/checkpoints'
-  epoch:            46
+  model_path:       'model'
+  epoch:            27
   dist_thresh:      0.05
   angle_thresh:     30
   quat_thresh:      60
