@@ -3,7 +3,7 @@ torch
 numpy
 open3d
 opencv-python
-pyglet=1.5.0
+pyglet==1.5.0
 pyyaml
 tqdm
 trimesh
