@@ -14,8 +14,8 @@ pip install -e .
 ```
 
 ### Data processing
-We provide dataset for hand grasps and cluttered scenes at https://drive.google.com/file/d/1tqM67rb4XRyiWu640QTNcAOrwCBF4mc9/view?usp=sharing
-Please download the data and place it in the same folder with this repo.
+We provide dataset for hand grasps and cluttered scenes at https://drive.google.com/file/d/1H7gvV-HS8DdbdSBww3Gva4dROQwR5WQI/view?usp=sharing
+Please download the data and place it in the same folder with this repo. Many thanks for @chenzyn's help in making this dataset available again!
 
 You can run 
 ```sh
@@ -49,6 +49,6 @@ Just run
 train.py & vis.py 
 ```
 
-to train the model and visualize it. Note that I did not test this part but it should be work. 
+to train the model and visualize it. 
 
 
